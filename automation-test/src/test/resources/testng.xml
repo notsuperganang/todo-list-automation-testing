@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ToDoList Automation Test Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.example.tests.listeners.TestListener"/>
+    </listeners>
+    
+    <test name="ToDo List App Tests" preserve-order="true">
+        <!-- Device Configuration sesuai environment Anda -->
+        <parameter name="deviceName" value="emulator-5554"/>
+        <parameter name="platformVersion" value="11"/>
+        <parameter name="appPath" value="/../todolist/apk/to-do-list.apk"/>
+        
+        <classes>
+            <class name="com.example.tests.ToDoListTest">
+                <methods>
+                    <!-- Test Cases sesuai requirement tugas -->
+                    <include name="testAppLaunch"/>
+                    <include name="testAddNewTask"/>
+                    <include name="testAddMultipleTasks"/>
+                    <include name="testMarkTaskCompleted"/>
+                    <include name="testDeleteSpecificTask"/>
+                    <include name="testDeleteTaskCancel"/>
+                    <include name="testClearAllTasks"/>
+                    <include name="testEmptyTaskValidation"/>
+                    <include name="testDuplicateTaskValidation"/>
+                    <include name="testTaskCounterAccuracy"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

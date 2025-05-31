@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="10" passed="6" failed="4" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-06-01T03:50:15 WIB" name="ToDoList Automation Test Suite" finished-at="2025-06-01T03:51:56 WIB" duration-ms="100601">
+    <groups>
+    </groups>
+    <test started-at="2025-06-01T03:50:15 WIB" name="ToDo List App Tests" finished-at="2025-06-01T03:51:56 WIB" duration-ms="100601">
+      <class name="com.example.tests.ToDoListTest">
+        <test-method is-config="true" signature="setUp(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:15 WIB" name="setUp" finished-at="2025-06-01T03:50:19 WIB" duration-ms="4073" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[emulator-5554]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[/../todolist/apk/to-do-list.apk]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:19 WIB" name="setUpPage" finished-at="2025-06-01T03:50:20 WIB" duration-ms="1069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testAppLaunch()[pri:1, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:20 WIB" name="testAppLaunch" description="Verify app launches successfully and displays main elements" finished-at="2025-06-01T03:50:21 WIB" duration-ms="398" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAppLaunch -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:21 WIB" name="setUpPage" finished-at="2025-06-01T03:50:21 WIB" duration-ms="384" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testAddNewTask()[pri:2, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:21 WIB" name="testAddNewTask" description="Test adding a new task" finished-at="2025-06-01T03:50:25 WIB" duration-ms="4069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewTask -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:25 WIB" name="setUpPage" finished-at="2025-06-01T03:50:25 WIB" duration-ms="251" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testAddMultipleTasks()[pri:3, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:25 WIB" name="testAddMultipleTasks" description="Test adding multiple tasks" finished-at="2025-06-01T03:50:41 WIB" duration-ms="15149" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Task should be present: Task 3 - Create Presentation expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Task should be present: Task 3 - Create Presentation expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.example.tests.ToDoListTest.testAddMultipleTasks(ToDoListTest.java:80)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddMultipleTasks -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:41 WIB" name="setUpPage" finished-at="2025-06-01T03:50:41 WIB" duration-ms="218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testMarkTaskCompleted()[pri:4, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:41 WIB" name="testMarkTaskCompleted" description="Test marking task as completed" finished-at="2025-06-01T03:50:47 WIB" duration-ms="5885" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Completed task count should increase by 1 expected [1] but found [0]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Completed task count should increase by 1 expected [1] but found [0]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.example.tests.ToDoListTest.testMarkTaskCompleted(ToDoListTest.java:107)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMarkTaskCompleted -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:47 WIB" name="setUpPage" finished-at="2025-06-01T03:50:48 WIB" duration-ms="202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testDeleteSpecificTask()[pri:5, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:48 WIB" name="testDeleteSpecificTask" description="Test deleting a specific task" finished-at="2025-06-01T03:50:51 WIB" duration-ms="3857" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Task should exist before deletion expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Task should exist before deletion expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.example.tests.ToDoListTest.testDeleteSpecificTask(ToDoListTest.java:121)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteSpecificTask -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:52 WIB" name="setUpPage" finished-at="2025-06-01T03:50:52 WIB" duration-ms="234" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testDeleteTaskCancel()[pri:6, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:50:52 WIB" name="testDeleteTaskCancel" description="Test delete task with confirmation dialog - Cancel" finished-at="2025-06-01T03:51:07 WIB" duration-ms="14977" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Task should still exist after canceling delete expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Task should still exist after canceling delete expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.example.tests.ToDoListTest.testDeleteTaskCancel(ToDoListTest.java:168)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteTaskCancel -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:07 WIB" name="setUpPage" finished-at="2025-06-01T03:51:08 WIB" duration-ms="254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testClearAllTasks()[pri:7, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:08 WIB" name="testClearAllTasks" description="Test clear all tasks functionality" finished-at="2025-06-01T03:51:24 WIB" duration-ms="15885" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClearAllTasks -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:24 WIB" name="setUpPage" finished-at="2025-06-01T03:51:24 WIB" duration-ms="239" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testEmptyTaskValidation()[pri:8, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:24 WIB" name="testEmptyTaskValidation" description="Test input validation - empty task" finished-at="2025-06-01T03:51:27 WIB" duration-ms="3325" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyTaskValidation -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:27 WIB" name="setUpPage" finished-at="2025-06-01T03:51:27 WIB" duration-ms="207" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testDuplicateTaskValidation()[pri:9, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:27 WIB" name="testDuplicateTaskValidation" description="Test duplicate task validation" finished-at="2025-06-01T03:51:35 WIB" duration-ms="8029" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDuplicateTaskValidation -->
+        <test-method is-config="true" signature="setUpPage()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:35 WIB" name="setUpPage" finished-at="2025-06-01T03:51:36 WIB" duration-ms="242" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPage -->
+        <test-method signature="testTaskCounterAccuracy()[pri:10, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:36 WIB" name="testTaskCounterAccuracy" description="Test task counter accuracy" finished-at="2025-06-01T03:51:55 WIB" duration-ms="19550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTaskCounterAccuracy -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.example.tests.ToDoListTest@79924b]" started-at="2025-06-01T03:51:55 WIB" name="tearDown" finished-at="2025-06-01T03:51:56 WIB" duration-ms="421" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.example.tests.ToDoListTest -->
+    </test> <!-- ToDo List App Tests -->
+  </suite> <!-- ToDoList Automation Test Suite -->
+</testng-results>

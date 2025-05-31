@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">ToDoList Automation Test Suite</th></tr>
+<tr><td><a href="#t0">ToDo List App Tests</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num attn">4</td><td class="num">100,601</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">ToDoList Automation Test Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">ToDo List App Tests &#8212; failed</th></tr><tr class="failedeven"><td rowspan="4">com.example.tests.ToDoListTest</td><td><a href="#m0">testAddMultipleTasks</a></td><td rowspan="1">1748724625980</td><td rowspan="1">15149</td></tr><tr class="failedeven"><td><a href="#m1">testDeleteSpecificTask</a></td><td rowspan="1">1748724648118</td><td rowspan="1">3857</td></tr><tr class="failedeven"><td><a href="#m2">testDeleteTaskCancel</a></td><td rowspan="1">1748724652642</td><td rowspan="1">14977</td></tr><tr class="failedeven"><td><a href="#m3">testMarkTaskCompleted</a></td><td rowspan="1">1748724641683</td><td rowspan="1">5885</td></tr><tr><th colspan="4">ToDo List App Tests &#8212; passed</th></tr><tr class="passedeven"><td rowspan="6">com.example.tests.ToDoListTest</td><td><a href="#m4">testAddNewTask</a></td><td rowspan="1">1748724621658</td><td rowspan="1">4069</td></tr><tr class="passedeven"><td><a href="#m5">testAppLaunch</a></td><td rowspan="1">1748724620873</td><td rowspan="1">398</td></tr><tr class="passedeven"><td><a href="#m6">testClearAllTasks</a></td><td rowspan="1">1748724668213</td><td rowspan="1">15885</td></tr><tr class="passedeven"><td><a href="#m7">testDuplicateTaskValidation</a></td><td rowspan="1">1748724687872</td><td rowspan="1">8029</td></tr><tr class="passedeven"><td><a href="#m8">testEmptyTaskValidation</a></td><td rowspan="1">1748724684339</td><td rowspan="1">3325</td></tr><tr class="passedeven"><td><a href="#m9">testTaskCounterAccuracy</a></td><td rowspan="1">1748724696144</td><td rowspan="1">19550</td></tr></tbody>
+</table>
+<h2>ToDo List App Tests</h2><h3 id="m0">com.example.tests.ToDoListTest#testAddMultipleTasks</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Task should be present: Task 3 - Create Presentation expected [true] but found [false]
+	at com.example.tests.ToDoListTest.testAddMultipleTasks(ToDoListTest.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.example.tests.ToDoListTest#testDeleteSpecificTask</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Task should exist before deletion expected [true] but found [false]
+	at com.example.tests.ToDoListTest.testDeleteSpecificTask(ToDoListTest.java:121)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.example.tests.ToDoListTest#testDeleteTaskCancel</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Task should still exist after canceling delete expected [true] but found [false]
+	at com.example.tests.ToDoListTest.testDeleteTaskCancel(ToDoListTest.java:168)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.example.tests.ToDoListTest#testMarkTaskCompleted</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Completed task count should increase by 1 expected [1] but found [0]
+	at com.example.tests.ToDoListTest.testMarkTaskCompleted(ToDoListTest.java:107)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 35 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.example.tests.ToDoListTest#testAddNewTask</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.example.tests.ToDoListTest#testAppLaunch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.example.tests.ToDoListTest#testClearAllTasks</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.example.tests.ToDoListTest#testDuplicateTaskValidation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.example.tests.ToDoListTest#testEmptyTaskValidation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.example.tests.ToDoListTest#testTaskCounterAccuracy</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>
