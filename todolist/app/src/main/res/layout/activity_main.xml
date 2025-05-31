@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f5f5f5">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My To-Do List"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#ffffff"
+        android:layout_marginBottom="16dp"
+        android:elevation="2dp" />
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="#ffffff"
+        android:padding="12dp"
+        android:elevation="1dp">
+
+        <EditText
+            android:id="@+id/et_new_task"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter new task..."
+            android:padding="12dp"
+            android:background="#f0f0f0"
+            android:textSize="16sp"
+            android:layout_marginRight="8dp" />
+
+        <Button
+            android:id="@+id/btn_add_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:textColor="#ffffff"
+            android:background="#4CAF50"
+            android:padding="12dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Task Counter -->
+    <TextView
+        android:id="@+id/tv_task_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Tasks: 0"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Task List -->
+    <ListView
+        android:id="@+id/lv_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:divider="#e0e0e0"
+        android:dividerHeight="1dp"
+        android:padding="8dp" />
+
+    <!-- Clear All Button -->
+    <Button
+        android:id="@+id/btn_clear_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CLEAR ALL TASKS"
+        android:textColor="#ffffff"
+        android:background="#f44336"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
