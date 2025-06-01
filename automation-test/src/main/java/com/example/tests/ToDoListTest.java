@@ -14,6 +14,17 @@ public class ToDoListTest extends BaseTest {
     public void setUpPage() {
         toDoPage = new ToDoPage(driver);
         toDoPage.waitForPageLoad();
+        
+        // Clear any existing tasks to start with clean state
+        if (toDoPage.getTaskCount() > 0) {
+            toDoPage.clickClearAll();
+            if (toDoPage.isDialogDisplayed()) {
+                toDoPage.clickDialogYes();
+            }
+            waitForElement(3);
+        }
+        
+        System.out.println("Starting test with " + toDoPage.getTaskCount() + " tasks");
     }
     
     @Test(priority = 1, description = "Verify app launches successfully and displays main elements")
@@ -46,6 +57,10 @@ public class ToDoListTest extends BaseTest {
         
         // Add new task
         toDoPage.addNewTask(newTask);
+        waitForElement(3); // Wait for task to appear
+        
+        // Debug: print current tasks
+        toDoPage.printCurrentTasks();
         
         // Verify task was added
         Assert.assertTrue(toDoPage.isTaskPresent(newTask), "New task should be present in the list");
@@ -69,11 +84,18 @@ public class ToDoListTest extends BaseTest {
         
         int initialTaskCount = toDoPage.getTaskCount();
         
-        // Add multiple tasks
+        // Add multiple tasks with proper waits
         for (String task : tasks) {
+            System.out.println("Adding task: " + task);
             toDoPage.addNewTask(task);
-            waitForElement(1); // Small delay between additions
+            waitForElement(3); // Increased wait between additions
+            
+            // Verify each task was added before continuing
+            Assert.assertTrue(toDoPage.isTaskPresent(task), "Task should be present after adding: " + task);
         }
+        
+        // Debug: print all current tasks
+        toDoPage.printCurrentTasks();
         
         // Verify all tasks were added
         for (String task : tasks) {
@@ -96,14 +118,22 @@ public class ToDoListTest extends BaseTest {
         
         // Add a task first
         toDoPage.addNewTask(testTask);
+        waitForElement(3);
+        
+        // Verify task was added
+        Assert.assertTrue(toDoPage.isTaskPresent(testTask), "Task should exist before marking as completed");
+        
         int initialCompletedCount = toDoPage.getCompletedTaskCount();
+        System.out.println("Initial completed count: " + initialCompletedCount);
         
         // Mark task as completed
         toDoPage.markTaskAsCompleted(testTask);
-        waitForElement(2); // Wait for UI update
+        waitForElement(4); // Increased wait for UI update
         
         // Verify completed count increased
         int finalCompletedCount = toDoPage.getCompletedTaskCount();
+        System.out.println("Final completed count: " + finalCompletedCount);
+        
         Assert.assertEquals(finalCompletedCount, initialCompletedCount + 1, 
                            "Completed task count should increase by 1");
         
@@ -118,21 +148,24 @@ public class ToDoListTest extends BaseTest {
         
         // Add a task first
         toDoPage.addNewTask(taskToDelete);
+        waitForElement(3);
+        
+        // Verify task exists before deletion
         Assert.assertTrue(toDoPage.isTaskPresent(taskToDelete), "Task should exist before deletion");
         
         int initialTaskCount = toDoPage.getTaskCount();
         
         // Delete the task
         toDoPage.deleteTask(taskToDelete);
+        waitForElement(2);
         
         // Handle confirmation dialog
         if (toDoPage.isDialogDisplayed()) {
             Assert.assertEquals(toDoPage.getDialogMessage(), "Are you sure you want to delete this task?", 
                                "Delete confirmation dialog should appear");
             toDoPage.clickDialogYes();
+            waitForElement(3); // Wait for deletion to complete
         }
-        
-        waitForElement(2); // Wait for deletion to complete
         
         // Verify task was deleted
         Assert.assertFalse(toDoPage.isTaskPresent(taskToDelete), "Task should be deleted from the list");
@@ -152,17 +185,22 @@ public class ToDoListTest extends BaseTest {
         
         // Add a task first
         toDoPage.addNewTask(taskToKeep);
+        waitForElement(3);
+        
+        // Verify task exists
+        Assert.assertTrue(toDoPage.isTaskPresent(taskToKeep), "Task should exist before delete attempt");
+        
         int initialTaskCount = toDoPage.getTaskCount();
         
         // Attempt to delete but cancel
         toDoPage.deleteTask(taskToKeep);
+        waitForElement(2);
         
         // Handle confirmation dialog - click No
         if (toDoPage.isDialogDisplayed()) {
             toDoPage.clickDialogNo();
+            waitForElement(2);
         }
-        
-        waitForElement(1);
         
         // Verify task still exists
         Assert.assertTrue(toDoPage.isTaskPresent(taskToKeep), "Task should still exist after canceling delete");
@@ -182,6 +220,7 @@ public class ToDoListTest extends BaseTest {
         String[] tasks = {"Clear Test 1", "Clear Test 2", "Clear Test 3"};
         for (String task : tasks) {
             toDoPage.addNewTask(task);
+            waitForElement(2);
         }
         
         // Verify tasks exist
@@ -189,15 +228,15 @@ public class ToDoListTest extends BaseTest {
         
         // Clear all tasks
         toDoPage.clickClearAll();
+        waitForElement(1);
         
         // Handle confirmation dialog
         if (toDoPage.isDialogDisplayed()) {
             Assert.assertEquals(toDoPage.getDialogMessage(), "Are you sure you want to delete all tasks?", 
                                "Clear all confirmation dialog should appear");
             toDoPage.clickDialogYes();
+            waitForElement(3); // Wait for clearing to complete
         }
-        
-        waitForElement(2); // Wait for clearing to complete
         
         // Verify all tasks are cleared
         Assert.assertEquals(toDoPage.getTaskCount(), 0, "All tasks should be cleared");
@@ -215,8 +254,7 @@ public class ToDoListTest extends BaseTest {
         // Try to add empty task
         toDoPage.enterNewTask("");
         toDoPage.clickAddTask();
-        
-        waitForElement(1);
+        waitForElement(2);
         
         // Verify task count didn't change
         int finalTaskCount = toDoPage.getTaskCount();
@@ -234,10 +272,12 @@ public class ToDoListTest extends BaseTest {
         
         // Add task first time
         toDoPage.addNewTask(duplicateTask);
+        waitForElement(3);
         int taskCountAfterFirst = toDoPage.getTaskCount();
         
         // Try to add same task again
         toDoPage.addNewTask(duplicateTask);
+        waitForElement(3);
         int taskCountAfterSecond = toDoPage.getTaskCount();
         
         // Verify task count didn't increase
@@ -251,13 +291,13 @@ public class ToDoListTest extends BaseTest {
     public void testTaskCounterAccuracy() {
         System.out.println("Test: Task Counter Accuracy");
         
-        // Clear all tasks first
+        // Ensure we start with clean state
         if (toDoPage.getTaskCount() > 0) {
             toDoPage.clickClearAll();
             if (toDoPage.isDialogDisplayed()) {
                 toDoPage.clickDialogYes();
             }
-            waitForElement(2);
+            waitForElement(3);
         }
         
         // Add tasks and verify counter
@@ -265,17 +305,19 @@ public class ToDoListTest extends BaseTest {
         
         for (int i = 0; i < tasks.length; i++) {
             toDoPage.addNewTask(tasks[i]);
+            waitForElement(3);
+            
             Assert.assertEquals(toDoPage.getTaskCount(), i + 1, 
                                "Task count should be " + (i + 1) + " after adding " + (i + 1) + " tasks");
         }
         
         // Mark some as completed and verify counter
         toDoPage.markTaskAsCompleted(tasks[0]);
-        waitForElement(1);
+        waitForElement(3);
         Assert.assertEquals(toDoPage.getCompletedTaskCount(), 1, "Completed count should be 1");
         
         toDoPage.markTaskAsCompleted(tasks[1]);
-        waitForElement(1);
+        waitForElement(3);
         Assert.assertEquals(toDoPage.getCompletedTaskCount(), 2, "Completed count should be 2");
         
         System.out.println("✓ Task counter accuracy verified");

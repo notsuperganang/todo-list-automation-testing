@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.time.Duration;
 
@@ -24,43 +25,69 @@ public class BaseTest {
         
         DesiredCapabilities capabilities = new DesiredCapabilities();
         
-        // Basic Android Capabilities - sesuai device Anda
+        // Basic Android Capabilities
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("deviceName", deviceName);
         capabilities.setCapability("platformVersion", platformVersion);
         
-        // App Configuration - sesuai APK path Anda
+        // App Configuration
         capabilities.setCapability("app", System.getProperty("user.dir") + appPath);
         capabilities.setCapability("appPackage", "com.example.to_do_list");
         capabilities.setCapability("appActivity", "com.example.to_do_list.MainActivity");
         
-        // UiAutomator2 Configuration - compatible dengan API 30
+        // UiAutomator2 Configuration - enhanced for stability
         capabilities.setCapability("automationName", "UiAutomator2");
         capabilities.setCapability("autoGrantPermissions", true);
         capabilities.setCapability("noReset", false);
         capabilities.setCapability("fullReset", false);
-        capabilities.setCapability("newCommandTimeout", 300);
+        capabilities.setCapability("newCommandTimeout", 600); // Increased timeout
         
-        // Additional capabilities untuk Android 11 (API 30)
+        // Enhanced capabilities for better stability
         capabilities.setCapability("disableWindowAnimation", true);
         capabilities.setCapability("skipServerInstallation", true);
+        capabilities.setCapability("ignoreUnimportantViews", false); // Better element detection
+        capabilities.setCapability("waitForIdleTimeout", 0); // Disable wait for idle
+        capabilities.setCapability("waitForQuiescence", false); // Disable quiescence wait
         
-        // Initialize Android Driver - Appium 2.18.0 compatible
-        URL appiumServer = new URL("http://127.0.0.1:4723");
-        driver = new AndroidDriver(appiumServer, capabilities);
+        // Android specific optimizations
+        capabilities.setCapability("uiautomator2ServerLaunchTimeout", 60000);
+        capabilities.setCapability("uiautomator2ServerInstallTimeout", 60000);
+        capabilities.setCapability("adbExecTimeout", 60000);
         
-        // Set timeouts
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // Element finding strategy
+        capabilities.setCapability("shouldUseSingletonTestManager", false);
+        capabilities.setCapability("elementResponseAttributes", "name,text,className,resourceId");
         
-        System.out.println("Appium driver initialized successfully");
-        System.out.println("Session ID: " + driver.getSessionId());
+        try {
+            // Initialize Android Driver - using URI.create to avoid deprecation warning
+            URL appiumServer = URI.create("http://127.0.0.1:4723").toURL();
+            driver = new AndroidDriver(appiumServer, capabilities);
+            
+            // Set enhanced timeouts
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+            
+            System.out.println("Appium driver initialized successfully");
+            System.out.println("Session ID: " + driver.getSessionId());
+            
+            // Wait for app to fully load
+            Thread.sleep(5000);
+            
+        } catch (Exception e) {
+            System.err.println("Failed to initialize Appium driver: " + e.getMessage());
+            throw new RuntimeException("Driver initialization failed", e);
+        }
     }
     
     @AfterClass
     public void tearDown() {
         if (driver != null) {
-            System.out.println("Closing the application and driver");
-            driver.quit();
+            try {
+                System.out.println("Closing the application and driver");
+                driver.quit();
+                System.out.println("Driver closed successfully");
+            } catch (Exception e) {
+                System.err.println("Error closing driver: " + e.getMessage());
+            }
         }
     }
     
@@ -69,6 +96,7 @@ public class BaseTest {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            System.err.println("Wait interrupted: " + e.getMessage());
         }
     }
 }
