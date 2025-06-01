@@ -293,8 +293,11 @@ Total tests run: 10, Passes: 10, Failures: 0, Skips: 0
 ## 👨‍💻 Kontributor
 
 **Nama**: Ganang Setyo Hadi
-**NIM**: 2208107010052 
+
+**NIM**: 2208107010052
+
 **Mata Kuliah**: Kualitas Perangkat Lunak  
+
 **Semester**: 6
 
 ## 📝 Lisensi
